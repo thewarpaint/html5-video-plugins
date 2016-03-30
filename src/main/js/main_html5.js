@@ -733,7 +733,7 @@ require("../../../html5-common/js/utils/environment.js");
       if (firstPlay && _video.textTracks && _video.textTracks.length > 0) {
         var languages = [];
         for (var i = 0; i < _video.textTracks.length; i++) {
-          if (_video.textTracks[i].kind === "captions") {
+          if (_video.textTracks[i].kind === "captions" && !_video.textTracks[i].src === "undefined") {
             this.controller.notify(this.controller.EVENTS.CAPTIONS_FOUND_ON_PLAYING);
           }
         }
