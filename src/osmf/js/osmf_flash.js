@@ -15,16 +15,10 @@ require("../../../html5-common/js/utils/constants.js");
    * Config variables for paths to flash resources.
    */
 
-  var pluginPath;
-  var filename = "osmf_flash.*\.js";
-  var scripts = document.getElementsByTagName('script');
-  for (var index in scripts) {
-    var match = scripts[index].src.match(filename);
-    if (match && match.length > 0) {
-      pluginPath = match.input.match(/.*\//)[0];
-      break;
-    }
-  }
+  var scriptsList = document.currentScript;
+  var osmfPath = scriptsList.src;
+  var pluginPath = osmfPath.slice(0, 1 + osmfPath.lastIndexOf("/"));
+
   if (!pluginPath) {
     console.error("Can't get path to script", filename);
     return;
