@@ -15,11 +15,16 @@ require("../../../html5-common/js/utils/constants.js");
    * Config variables for paths to flash resources.
    */
 
- /* var scriptsList = document.currentScript;
+ /* var scriptsList = document.currentScript; */
+/*var scriptsList = document.currentScript;
   var osmfPath = scriptsList.src;*/
 
   var scriptsList = document.getElementsByTagName("script");
-  var osmfPath = scriptsList[scriptsList.length-1].src;
+  var osmfPath = scriptsList[0].src;
+
+  console.log("#### script length " + length );
+
+
 
   var pluginPath = osmfPath.slice(0, 1 + osmfPath.lastIndexOf("/"));
 
